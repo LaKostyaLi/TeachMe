@@ -9,11 +9,12 @@ public class SpawnObject : MonoBehaviour
    
     void Start()
     {
-        GameObject obj = Instantiate(gameObject, gameObject.transform.position, Quaternion.identity);
+        StartCoroutine(instObj());
     }
 
-    void Update()
+    IEnumerator instObj()
     {
-        
+        yield return new WaitForSeconds(0.5f);
+        GameObject obj = Instantiate(gameObject, gameObject.transform.position, Quaternion.identity);
     }
 }
